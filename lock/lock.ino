@@ -1,6 +1,8 @@
 #include <Keypad.h> // BIBLIOTECA PARA O FUNCIONAMENTO DO TECLADO DE MEMBRANA
 #include <Servo.h> // BIBLIOTECA PARA O FUNCIONAMENTO DO SERVO
 
+using namespace std;
+
 Servo servo_Motor; //OBJETO DO TIPO SERVO
 char* password = "147"; //SENHA CORRETA PARA DESTRANCAR A FECHADURA
 int position = 0; //VARIÁVEL PARA LEITURA DE POSIÇÃO DA TECLA PRESSIONADA
@@ -29,6 +31,7 @@ void setup(){
 }
 
 void loop(){
+  cout << "Digite sua senha:";
   char key = keypad.getKey(); //LEITURA DAS TECLAS PRESSIONADAS 
   if (key == '*' || key == '#') { //SE A TECLA PRESSIONADA POR IGUAL A CARACTERE "*" OU "#", FAZ
       position = 0; //POSIÇÃO DE LEITURA DA TECLA PRESSIONADA INICIA EM 0
@@ -39,6 +42,7 @@ if (key == password[position]){ //SE A TECLA PRESSIONADA CORRESPONDER A SEQUÊNC
 }
 if (position == 3){ // SE VARIÁVEL FOR IGUAL A 3 FAZ (QUANDO AS TECLAS PRESSIONADAS CHEGAREM A 3 POSIÇÕES, SIGNIFICA QUE A SENHA ESTÁ CORRETA)
       setLocked(false); //FECHADURA DESTRANCADA
+      cout << "Senha correta";
 }
 delay(100);//INTERVALO DE 100 MILISSEGUNDOS
 }
