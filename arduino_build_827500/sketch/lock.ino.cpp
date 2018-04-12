@@ -1,3 +1,6 @@
+#include <Arduino.h>
+#line 1 "/root/Desktop/brincadeira/Lockpicking/lock/lock.ino"
+#line 1 "/root/Desktop/brincadeira/Lockpicking/lock/lock.ino"
 #include <Keypad.h> // BIBLIOTECA PARA O FUNCIONAMENTO DO TECLADO DE MEMBRANA
 #include <Servo.h> // BIBLIOTECA PARA O FUNCIONAMENTO DO SERVO
 
@@ -20,6 +23,13 @@ Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );//AS VA
 const int ledVermelho = 12; //PINO EM QUE ESTÁ CONECTADO O LED VERMELHO
 const int ledVerde = 13; //PINO EM QUE ESTÁ CONECTADO O LED VERDE
 
+#line 23 "/root/Desktop/brincadeira/Lockpicking/lock/lock.ino"
+void setup();
+#line 31 "/root/Desktop/brincadeira/Lockpicking/lock/lock.ino"
+void loop();
+#line 47 "/root/Desktop/brincadeira/Lockpicking/lock/lock.ino"
+void setLocked(int locked);
+#line 23 "/root/Desktop/brincadeira/Lockpicking/lock/lock.ino"
 void setup(){
   pinMode(ledVermelho, OUTPUT); //DECLARA O PINO COMO SAÍDA
   pinMode(ledVerde, OUTPUT); //DECLARA O PINO COMO SAÍDA
@@ -56,3 +66,4 @@ else{ //SENÃO, FAZ
     servo_Motor.write(82);// SERVO GIRA A 82º (FECHADURA DESTRANCADA)
 }
 }
+

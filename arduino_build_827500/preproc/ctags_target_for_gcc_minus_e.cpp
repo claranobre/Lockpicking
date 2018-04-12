@@ -1,5 +1,7 @@
-#include <Keypad.h> // BIBLIOTECA PARA O FUNCIONAMENTO DO TECLADO DE MEMBRANA
-#include <Servo.h> // BIBLIOTECA PARA O FUNCIONAMENTO DO SERVO
+# 1 "/root/Desktop/brincadeira/Lockpicking/lock/lock.ino"
+# 1 "/root/Desktop/brincadeira/Lockpicking/lock/lock.ino"
+# 2 "/root/Desktop/brincadeira/Lockpicking/lock/lock.ino" 2
+# 3 "/root/Desktop/brincadeira/Lockpicking/lock/lock.ino" 2
 
 Servo servo_Motor; //OBJETO DO TIPO SERVO
 char password[9] = "13371337"; //SENHA CORRETA PARA DESTRANCAR A FECHADURA
@@ -15,14 +17,14 @@ char keys[ROWS][COLS] = { //DECLARAÇÃO DOS NUMEROS, LETRAS E CARACTERES DO TEC
 
 byte rowPins[ROWS] = { 8, 7, 6, 9 }; // PINOS DE CONEXAO DAS LINHAS DO TECLADO
 byte colPins[COLS] = { 5, 4, 3, 2 }; //PINOS DE CONEXAO DAS COLUNAS DO TECLADO
-Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );//AS VARIAVEIS rowPins E colPins RECEBERÃO O VALOR DE LEITURA DOS PINOS DAS LINHAS E COLUNAS RESPECTIVAMENTE
+Keypad keypad = Keypad( ((char*)keys), rowPins, colPins, ROWS, COLS );//AS VARIAVEIS rowPins E colPins RECEBERÃO O VALOR DE LEITURA DOS PINOS DAS LINHAS E COLUNAS RESPECTIVAMENTE
 
 const int ledVermelho = 12; //PINO EM QUE ESTÁ CONECTADO O LED VERMELHO
 const int ledVerde = 13; //PINO EM QUE ESTÁ CONECTADO O LED VERDE
 
 void setup(){
-  pinMode(ledVermelho, OUTPUT); //DECLARA O PINO COMO SAÍDA
-  pinMode(ledVerde, OUTPUT); //DECLARA O PINO COMO SAÍDA
+  pinMode(ledVermelho, 0x1); //DECLARA O PINO COMO SAÍDA
+  pinMode(ledVerde, 0x1); //DECLARA O PINO COMO SAÍDA
 
   servo_Motor.attach(11); //PINO DE CONTROLE DO SERVO MOTOR
   setLocked(true); //ESTADO INICIAL DA FECHADURA (TRANCADA)
@@ -46,13 +48,13 @@ delay(100);//INTERVALO DE 100 MILISSEGUNDOS
 }
 void setLocked(int locked){ //TRATANDO O ESTADO DA FECHADURA
 if (locked){ //SE FECHADURA TRANCADA, FAZ
-    digitalWrite(ledVermelho, HIGH);// LED VERMELHO ACENDE
-    digitalWrite(ledVerde, LOW);// LED VERDE APAGA
+    digitalWrite(ledVermelho, 0x1);// LED VERMELHO ACENDE
+    digitalWrite(ledVerde, 0x0);// LED VERDE APAGA
     servo_Motor.write(0); //POSIÇÃO DO SERVO FICA EM 0º (FECHADURA TRANCADA)
 }
 else{ //SENÃO, FAZ
-    digitalWrite(ledVerde, HIGH);// LED VERDE ACENDE
-    digitalWrite(ledVermelho, LOW);// LED VERMELHO APAGA
+    digitalWrite(ledVerde, 0x1);// LED VERDE ACENDE
+    digitalWrite(ledVermelho, 0x0);// LED VERMELHO APAGA
     servo_Motor.write(82);// SERVO GIRA A 82º (FECHADURA DESTRANCADA)
 }
 }

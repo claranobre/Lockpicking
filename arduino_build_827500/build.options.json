@@ -1,0 +1,10 @@
+{
+  "builtInLibrariesFolders": "/root/Downloads/arduino-1.8.5/libraries",
+  "customBuildProperties": "build.warn_data_percentage=75,runtime.tools.avrdude.path=/root/Downloads/arduino-1.8.5/hardware/tools/avr,runtime.tools.arduinoOTA.path=/root/Downloads/arduino-1.8.5/hardware/tools/avr,runtime.tools.avr-gcc.path=/root/Downloads/arduino-1.8.5/hardware/tools/avr",
+  "fqbn": "arduino:avr:uno",
+  "hardwareFolders": "/root/Downloads/arduino-1.8.5/hardware",
+  "otherLibrariesFolders": "/root/Arduino/libraries",
+  "runtime.ide.version": "10805",
+  "sketchLocation": "/root/Desktop/brincadeira/Lockpicking/lock/lock.ino",
+  "toolsFolders": "/root/Downloads/arduino-1.8.5/tools-builder,/root/Downloads/arduino-1.8.5/hardware/tools/avr"
+}
